@@ -1,0 +1,358 @@
+/*BESPOKE HOTEL*/
+p{
+  font-family: DidoteTextW01-Italic, serif; 
+  font-style: italic;
+  letter-spacing: -0.8px;
+}
+.page{
+  width: 100%;
+  display: flex;
+  min-width: 1000px; /*1. 쿼리 조정 없이 본사페이지와 비슷하게 동작*/
+}
+.colume{
+  width: 50%;
+}
+.content{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.introduce{
+  white-space: nowrap; /*창 줄여도 글자 줄바꿈 안되게*/
+}
+.dark_introduce{
+  background-color: var(--black);
+  color: var(--darkwhite);
+}
+.read{
+  margin: 0 auto; /*3. 쿼리 조정 없이 본사페이지와 비슷하게 동작*/
+  padding-top: 140px; /*쿼리 제작시 용이(일부 제외)*/
+  width: max-content;
+}
+.read #title_L{
+  font-size: 34px;
+}
+.read #title_S{
+  font-size: 30px;
+}
+.read p:nth-child(n+2){
+  line-height: 1.4;
+}
+/*page innovative*/
+.innovative .content{
+  height: 775px; /*이미지 세로길이*/
+  background-image: url("../img/bespoke/1.webp");
+}
+.innovative .read{
+  padding-left: 0;
+  color: var(--darkgrey);
+}
+.innovative #title_L{
+  padding-bottom: 50px;
+}
+.innovative p:nth-child(n+3){
+  margin-bottom: 70px;
+}
+.innovative a{
+  display: flex;
+  width: max-content;
+  margin: 0 auto;
+  font-size: 15px;
+  padding: 1px 30px;
+  color: var(--black);
+  border: 1px solid var(--gold);
+  font-family: DidoteTextW01-Italic, serif; 
+}
+/*page fitness*/
+.fitness .content{
+  height: 766px;
+  background-image: url("../img/bespoke/2.webp");
+}
+.fitness .read{
+  color: var(--darkgrey);
+}
+.fitness #title_S{
+  padding-bottom: 150px;
+}
+/*page refined*/
+.refined .content{
+  height: 871px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.refined .texture{
+  width: 390px;
+  height: 205px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.brw{
+  background-image: url("../img/bespoke/3.webp");
+  margin-bottom: 120px;
+}
+.blk{
+  background-image: url("../img/bespoke/3_3.webp");
+}
+.texture img{
+  width: 280px;
+  height: 149px;
+  position: absolute;
+  right: 0;
+  bottom: -60px;
+}
+.texture #metal{
+  width: 161px;
+  height: 85px;
+  bottom: 4px;
+}
+.refined #title_S{
+  padding-bottom: 50px;
+}
+/*page sophia*/
+.sophia .content{
+  height: 728px;
+  background-image: url("../img/bespoke/4.webp");
+}
+.sophia #title_S{
+  padding-top: 5px;
+  padding-bottom: 30px;
+}
+/*page not_moblile*/
+.not_moblile .content{
+  height: 736px;
+  background-image: url("../img/bespoke/5.webp");
+}
+.not_moblile .read{
+  color: var(--darkgrey);
+}
+.not_moblile #title_S{
+  padding-bottom: 50px;
+}
+.not_moblile #title_SS{
+  font-size: 26px;
+  padding-bottom: 20px;
+}
+/*page ana*/
+.ana .content{
+  height: 756px;
+  background-image: url("../img/bespoke/6.webp");
+}
+.ana #title_L{
+  padding-bottom: 50px;
+}
+.ana p{
+  font-size: 14px;
+}
+/*page stora*/
+.stora .content{
+  height: 767px;
+  background-image: url("../img/bespoke/7.webp");
+}
+.stora #title_Lg{
+  font-size: 34px;
+  color: var(--gold);
+  padding-bottom: 25px;
+}
+.stora #title_L{
+  padding-bottom: 40px;
+}
+/*page say_hello*/
+.say_hello .content{
+  height: 950px;
+  background-color: var(--white);
+}
+.say_hello .read{
+  padding-top: 300px; /*패딩 따로 설정*/
+}
+.say_hello #title_S{
+  padding-bottom: 60px;
+}
+/*page last_hotel*/
+.last_hotel .content{
+  height: 756px;
+  background-image: url("../img/bespoke/8.webp");
+}
+.last_hotel .read{
+  padding-top: 250px; /*패딩 따로 설정*/
+}
+.last_hotel #title_L{
+  padding-bottom: 40px;
+}
+
+/*collection*/
+#collection{
+  color: var(--darkgrey);
+  position: relative; /*화살표의 부모 위치*/
+}
+#collection p{
+  font-size: 25px;
+  padding: 170px 0 100px;
+  width: max-content;
+  margin: 0 auto;
+}
+.arrow{
+  position: absolute;
+  bottom: 329.5px;
+  z-index: 10; /*갤러리 호버시 가려지지 않도록*/
+}
+.arrow_left{
+  left: 30px;
+}
+.arrow_right{
+  right: 30px;
+}
+/*collection-갤러리*/
+#slider{
+  position: relative;
+  height: 659px;
+}
+#galley_container{
+  display: flex;
+  width: max-content;
+  position: absolute;
+}
+.box{
+  display: flex;
+}
+.obj{
+  margin: 0 2px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.back{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.back:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.back:hover button svg{
+  opacity: 1;
+}
+.back button svg{
+  position: absolute;
+  bottom: 35px;
+  left: 35px;
+  opacity: 0;
+}
+.back button:hover{
+  opacity: 0.7;
+}
+.collect .top{
+  margin-bottom: 4px;
+}
+button .fill{
+  display: none; /*채워진 하트 처음에 안보이도록*/
+}
+.c_1{
+  background-image: url("../img/bespoke/c_1.webp");
+  width: 322.99px;
+  height: 216px;
+}
+.c_2{
+  background-image: url("../img/bespoke/c_2.webp");
+}
+.c_3{
+  background-image: url("../img/bespoke/c_4.webp");
+}
+.c_4{
+  background-image: url("../img/bespoke/c_6.webp");
+  width: 652.99px;
+  height: 436px;
+}
+.c_5{
+  background-image: url("../img/bespoke/c_9.webp");
+}
+.c_6{
+  background-image: url("../img/bespoke/c_3.webp");
+  width: 652px;
+  height: 436px;
+}
+.c_7{
+  background-image: url("../img/bespoke/c_5.webp");
+}
+.c_8{
+  background-image: url("../img/bespoke/c_7.webp");
+}
+.c_9{
+  background-image: url("../img/bespoke/c_8.webp");
+}
+.c_10{
+  background-image: url("../img/bespoke/c_10.webp");
+}
+.c_2, .c_8, .c_9{
+  width: 324px;
+  height: 216px;
+}
+.c_3, .c_5, .c_7, .c_10{
+  width: 488px;
+  height: 325.99px;
+}
+
+@media screen and (max-width: 500px) {
+  body{ /*모바일 버전에서 양옆 여백으로 흔들림 제거*/
+    overflow-x: hidden; 
+  }
+  /*요소 배치*/
+  .page{
+    flex-direction: column;
+    min-width: unset;
+    overflow-x: hidden;
+  }
+  .colume{
+    width: 100%; /*사진 넓이*/
+  }
+  /*introduce 글넓이 조절*/
+  .read{
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+  .last_hotel .read{
+    padding: 30px 0 0; /*패딩 따로 설정*/
+  }
+  /*글자 크기 조절*/
+  .read #title_L, .read #title_S{
+    font-size: 24px;
+  }
+  .read #title_SS{
+    font-size: 19px;
+  }
+  p{
+    font-size: 12px;
+  }
+  .stora #title_Lg, #collection p{
+    font-size: 20px;
+  }
+  /*페이지 삭제*/
+  .fitness .introduce, .ana, .say_hello{
+    display: none;
+  }
+  /*사진 높이*/
+  .innovative .content{
+    height: 300px; 
+  }
+  .fitness .content, .last_hotel .content{
+    height: 250px;
+  }
+  .refined .content{ 
+    height: 600px;
+    padding-bottom: 20px;/*이후 텍스처 사진크기 변경*/
+  }
+  .refined .texture img{
+    bottom: -30px;
+  }
+  .sophia .content, .stora .content{
+    height: 320px;
+  }
+  .not_moblile .content{
+    height: 280px; 
+  }
+  /*모바일버전에서*/ 
+  #galley_container{
+    overflow-x: hidden;
+  }
+}

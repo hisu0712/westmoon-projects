@@ -1,0 +1,200 @@
+/*home*/
+p{
+  font-family: DidoteTextW01-Italic, serif; 
+  font-style: italic;
+}
+.page{
+  display: flex;
+  min-width: 1000px;
+}
+.content > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.introduce{
+  margin: 0 auto;
+  color: var(--white);
+  white-space: nowrap; /*창 줄여도 글자 줄바꿈 안되게*/
+  display: flex;
+  flex-direction: column;
+}
+#title_L{
+  font-size: 35px;
+}
+#title_M, #title_S{
+  letter-spacing: -0.5px;
+}
+#title_M{
+  font-size: 25px;
+  line-height: 38px;
+}
+#title_S{
+  line-height: 16px;
+  font-size: 13px;
+}
+#title_SS{
+  font-size: 11px;
+}
+.yellow{
+  color: var(--gold);
+}
+.introduce a{
+  width: max-content;
+  padding: 7px 25px;
+  font-size: 14px;
+  color: var(--darkgold);
+  border: 1px solid var(--darkgold);
+  font-family: DidoteTextW01-Italic, serif; 
+  font-style: italic;
+}
+.introduce a:hover{
+  color: var(--black);
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  transition: 0.5s;
+}
+
+
+/*page_one*/
+.page_one{
+  background-color: var(--black);
+}
+.page_one .content{
+  width: 67%;
+  height: 930px;
+}
+.page_one .introduce{
+  width: max-content; /*이 코드가 있어야 마진 auto 가능, width 33% 불필요*/
+  padding-top: 230px;
+}
+.page_one .introduce #title_S{
+  padding: 50px 0 40px;
+}
+.page_one .introduce a{
+  margin-left: 40px;
+}
+/*home part_two*/
+.page_two{
+  background-color: var(--black);
+}
+.page_two .content{
+  width: 60%;
+  height: 1100px;
+}
+.page_two .introduce{
+  width: max-content; 
+  padding-top: 230px;
+}
+.page_two #title_S{
+  padding: 40px 0;
+}
+.page_two .yellow{
+  font-weight: bold;
+}
+/*page_three*/
+.page_three{
+  padding: 60px 0;
+}
+.page_three .content{
+  width: 50%;
+  height: 500px;
+  position: relative;
+  background-color: rgba(0, 0, 0);
+  z-index: -2;
+}
+.page_three .content img{
+  position: absolute;
+  opacity: 0.6;
+  z-index: -1;
+}
+.page_three .video_name{
+  width: 100%;
+  height: 100%;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.video_name .play{
+  display: flex;
+}
+.video_name svg{
+  margin-top: 15px;
+  margin-right: 15px;
+}
+.video_name h4{
+  font-family: serif; 
+  margin-top: 20px;
+  border-bottom: 2px solid var(--white);
+  font-size: 20px;
+}
+.page_three .introduce{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  white-space: unset;
+  color: var(--black);
+}
+.page_three .introduce p{
+  font-size: 50px;
+  font-family: serif !important;
+}
+
+@media screen and (max-width: 500px) {
+  .page{
+    flex-direction: column;
+    min-width: unset;
+    overflow-x: hidden;
+  }
+  /*글자 크기 변경*/
+  #title_M{
+    font-size: 21px;
+  }
+  #title_S{
+    font-size: 12px;
+  }
+  /*content, introduce가 페이지마다 구성이 다름*/
+  .introduce{
+    align-items: center;
+    white-space: unset;
+    max-width: 350px;
+  }
+  #title_S > br{
+    display: none !important;
+  }
+  .page_one .content, .page_two .content, .page_three .content{
+    width: 100%;
+  }
+  .page_one .introduce, .page_two .introduce, .page_three .introduce{
+    width: 100%;
+  }
+  /**/
+  #reverse{
+    flex-direction: column-reverse;
+  }
+  .page_one .content, .page_two .content, .page_three .content{
+    height: 300px;
+  }
+  .page_one .introduce, .page_two .introduce, .page_three{
+    padding: 50px 0;
+  }
+  /*page_one*/
+  .page_one .introduce #title_S{
+    padding: 30px 0;
+  }
+  .page_one .introduce a{
+    margin-left: 0;
+  }
+  /*page_three*/
+  .page_three .introduce p{
+    padding-top: 40px;
+    font-size: 20px;
+  }
+  .page_three #title_L{
+    font-size: 22px;
+  }
+}
