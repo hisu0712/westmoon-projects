@@ -1,0 +1,391 @@
+/*모바일first로 작성 후 미디어쿼리에서 확장하는 방식*/
+:root{
+  --apple_black: rgb(29, 29, 31);
+  --apple_grey: #888;
+  --apple_white: #ddd;
+  --yellow: #e6e651;
+  --black: #000;
+  --white: #fff;
+  --none:#ffffff00;
+}
+html{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  background-color: var(--apple_black);
+}
+body{
+  overflow-x: hidden;
+  color: var(--apple_black);
+  letter-spacing: -0.05em;
+}
+p{
+  line-height: 1.6;
+}
+a{
+  color: var(--apple_white);
+  text-decoration: none;
+}
+
+body.before-load {
+  overflow: hidden;
+}
+.container {
+  /*iPone 가로 스크롤 방지*/
+  overflow-x: hidden;
+}
+.global-nav{
+  position: absolute; /*헤더 공간 차지하지 않도록(스크롤 처리 시)*/
+  top: 3px;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 38px; /*44*/
+  padding: 0 1rem;
+}
+.global-nav a{
+  color: #c3c3c3;
+  font-size: 0.9rem;
+}
+.local-nav{
+  position: absolute;
+  top: 45px;
+  left: 0;
+  z-index: 11;
+  width: 100%;
+  height: 52px;
+  padding: 0 1rem;
+  border-bottom: 1px solid #ddd;
+}
+.local-nav-sticky .local-nav {
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: saturate(180%) blur(15px); /*ios 버전*/
+  backdrop-filter: saturate(180%) blur(15px); /*뿌옇게 처리*/
+}
+.global-nav-links,
+.local-nav-links{
+  display: flex;
+  align-items: center;
+  max-width: 1000px; /*화면 줄였을때 간격 자연스럽게 줄어듬*/
+  height: 100%;
+  margin: 0 auto;
+}
+.global-nav-links{
+  justify-content: space-between;
+}
+.local-nav-links .product-name{
+  margin-right: auto;
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--white);
+}
+.local-nav-links a{
+  font-size: 1.1rem;
+  color: var(--apple_white);
+  font-weight: 500;
+}
+.local-nav-links a:not(.product-name){
+  margin-left: 2em;
+}
+.scroll-section{
+  position: relative;
+  padding-top: 50vh;
+}
+#scroll-section-0 h1{
+  position: relative;
+  top: -10vh; /*창 높이의 10%만큼*/
+  z-index: 5;
+  font-size: 4rem; /*14px(html지정)*4*/
+  text-align: center;
+  /*추가*/
+  color: var(--yellow);
+  text-shadow: 1px 3px 3px rgba(45, 45, 45, 0.494);
+}
+.main-message{ /*줄수 상관없이 세로방향 중앙정렬*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 35vh; /*높이의 35%에 위치!!*/
+  margin: 5px 0;
+  height: 3em; /*이 div의 폰트 사이즈 기준, em을 쓰는 이유:이 글자 크기의 3배이기 때문에 파악 쉬움*/
+  font-size: 2.5rem;
+  opacity: 0;
+}
+.main-message p{
+  font-weight: 900;
+  text-align: center;
+}
+.main-message small{
+  display: block; /*다음 글자가 다음단락으로 넘어감*/
+  margin-bottom: 0.5em;
+  font-size: 1.2rem;
+}
+/*추가*/
+#scroll-section-0 .main-message{
+  color: var(--white);
+}
+/*viewer*/
+#viewer{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*세로축 기준 정렬*/
+  width: 100%;
+  position: relative;
+  padding: 30px 100px 50px;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  color: var(--apple_white);
+}
+#viewer .big{
+  font-size: 3rem;
+  font-weight: 700;
+}
+#viewer p{
+  padding-top: 0.3rem;
+  font-size: 1.7rem;
+}
+.view{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*세로축 기준 정렬*/
+  width: 100%;
+  height: 500px;
+  /*background-image: linear-gradient(to top, var(--skyblue), var(--blueA));*/
+  background-color: var(--blue);
+  position: relative;
+  border-radius: 50px;
+}
+#viewer model-viewer{
+  width: 100%;
+  height: 100%;
+  padding: 10px 35px;
+  background: unset;
+}
+.slides{
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  justify-content: center;
+  position: absolute;
+  bottom: 30px;
+  /*top: 30px; ar촬영시*/
+}
+.slide{
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.074);
+  margin-right: 20px;
+  border-radius: 10px;
+  display: flex;
+}
+.slide:last-child{ /*자신의 마지막 요소 선택자*/
+  margin-right: 0;
+}
+.slide.selected {
+  border: 3px solid var(--black);
+}
+
+/*추가*/
+#scroll-section-2 .main-message{
+  font-size: 3.5rem;
+  color: var(--white); /*추가*/
+}
+
+.description{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;/*메뉴명과 좌우패딩 맞춤*/
+  font-size: 1.2rem;
+  color: var(--apple_grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.description #west-br1{
+ margin-bottom: 2rem;
+}
+.description #west-br2{
+  max-width: 75%;
+ }
+.sticky-elem.desc-message {
+	width: 45%;
+	font-weight: 900;
+	opacity: 0;
+}
+.pin{
+  width: 1px;
+  height: 100px;
+  background-color: var(--none);
+}
+#scroll-section-2 .b{
+  top: 10%;
+  left: 40%;
+}
+#scroll-section-2 .c{
+  top: 15%;
+  left: 45%;
+}
+.mid-message{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-size: 2rem;
+  color: var(--apple_grey);
+}
+.mid-message.br{
+  padding-bottom: 1.5rem;
+}
+.mid-message strong{
+  color: var(--apple_white);
+}
+.canvas-caption{
+  max-width: 1000px;
+  margin: -24rem auto 0; /*모바일용 문단 높이*/
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  color: var(--apple_grey);
+}
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  background-color: var(--yellow);
+}
+.sticky-elem{
+  display: none;
+  position: fixed;
+  left: 0;
+  width: 100%;
+}
+#show-scene-0 #scroll-section-0 .sticky-elem, /*자바스크립트에 body id을 추가하여 해당하는 것만 보이도록*/
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem{ 
+  display: block;
+  will-change: transform, opacity; /*메모리 사용량 증가(퍼포먼스 향상 효과)*/
+}
+.scroll-effect-end .sticky-elem {
+  display: none !important;
+}
+.sticky-elem-canvas{
+  top: 0;
+  height: 100%;
+}
+.sticky-elem-canvas canvas{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#scroll-section-3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-blend-canvas.sticky{
+  position: fixed;
+  top: 0;
+	z-index: 10;
+}
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: var(--white);
+  opacity: 0;
+  transition: 0.5s;
+}
+.before-load .container { /*새로고침 버그 수정*/
+  display: none; 
+}
+.before-load .loading {
+  opacity: 1;
+}
+@keyframes loading-spin {
+  100% { transform: rotate(360deg); }
+}
+@keyframes loading-circle-ani {
+  0% { stroke-dashoffset: 157; }
+  75% { stroke-dashoffset: -147; }
+  100% { stroke-dashoffset: -157; }
+}
+.loading-circle {
+  width: 54px;
+  height: 54px;
+  animation: loading-spin 3s infinite;
+}
+.loading-circle circle {
+  stroke: var(--black);
+  stroke-width: 4;
+  /*getTotalLength()로 storke의 길이를 얻어올 수 있음*/
+  stroke-dasharray: 157;
+  stroke-dashoffset: 0;
+  fill: transparent;
+  animation: loading-circle-ani 1s infinite;
+}
+
+.normal-content {
+  margin-bottom: 10rem;
+}
+
+@media (min-width: 1024px){
+  #scroll-section-0 h1{
+    font-size: 9vw; /*윈도우 창의 9% 정도(창에 따라 달라짐), 굷직한 문구는 창에 따라 크기가 달라지도록*/
+  }
+  .main-message{
+    font-size: 5vw;
+    text-shadow: 1px 3px 3px rgba(45, 45, 45, 0.494);
+  }
+  .main-message .small{ /*session1*/
+    font-size: 2vw;
+    font-weight: 700;
+  }
+  .description{
+    padding: 0; /*메뉴명은 패딩 없음 width 1000px*/
+    font-size: 2rem;
+  }
+  .description strong{
+    font-size: 6rem;
+  }
+  #scroll-section-2 .main-message{
+    font-size: 6vw;
+  }
+  .main-message small{
+    font-size: 1.7vw;
+  }
+  .sticky-elem.desc-message {
+		width: 20%;
+	}
+  #scroll-section-2 .b{
+    top: 20%;
+    left: 53%;
+  }
+  #scroll-section-2 .c{
+    left: 55%;
+  }
+  .mid-message{
+    width: 1000px;
+		padding: 0;
+    font-size: 4vw; /*가변값*/
+    line-height: 0.8;
+  }
+  .mid-message .new-mid{
+    font-size: 2vw;
+  }
+  .canvas-caption{
+    margin-top: -8rem;
+		padding: 0;
+    font-size: 2rem; /*고정값*/
+  }
+}

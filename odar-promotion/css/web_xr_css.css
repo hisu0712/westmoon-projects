@@ -1,0 +1,387 @@
+* {
+	-webkit-touch-callout: none;
+	-webkit-text-size-adjust: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+:root{
+	--apple_black: rgb(29, 29, 31);
+	--apple_white: #ddd;
+	--apple_grey: #888;
+	--yellow: #e9dd2b;
+	--black: #000;
+	--white: #fff;
+}
+html{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 14px;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--white);
+	letter-spacing: -0.05em;
+	overscroll-behavior: none;
+	height: 100%;
+	touch-action: pan-y;
+}
+
+/*메뉴바 관련*/
+a{
+	color: var(--apple_black);
+	text-decoration: none;
+}
+#local-nav{
+	position: relative;
+	width: 100%;
+	height: 52px;
+	padding: 0 1rem; /*border-box가 있어야 오른쪽 패딩 적용됨*/
+	border-bottom: 1px solid var(--apple_black);
+	display: block; /*교체 block-none*/
+}
+.local-nav-links{
+	display: flex;
+	align-items: center;
+	max-width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+}
+.local-nav-links .product-name{
+	margin-right: auto;
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: var(--apple_black);
+}
+.local-nav-links a{
+	font-size: 1rem;
+	color: var(--apple_black);
+}
+.local-nav-links a:not(.product-name){
+	margin-left: 2em;
+}
+
+button {
+	cursor: pointer;
+	text-transform: uppercase;
+}
+canvas {
+	display: block;
+}
+a, button, input, select {
+	pointer-events: auto;
+}
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	transition: 0.5s;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-y: scroll;
+	touch-action: pan-y;
+}
+.sidenav::-webkit-scrollbar{
+	display: none;
+}
+.ar-object{
+	width: 200px;
+	margin-top: 20px;
+	border-radius: 10px;
+}
+.ar-object:last-child{
+	margin-bottom: 20px;
+}
+.ARSection{
+  display: flex; /*교체 flex-none*/
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+#AR{
+	padding-top: 140px;
+	height: max-content;
+	width: max-content;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-gap: 1rem 0.7rem;
+	align-items: center;
+	justify-content: center;
+	margin-left: 70px;
+}
+#main{
+	height: 100vh;
+	display: none; /*교체 none-flex*/
+	flex-direction: column;
+}
+.ReadComent{
+	text-align: center;
+	font-size: 1rem;
+}
+.ReadComent h1{
+	font-size: 2.5rem;
+	letter-spacing: 0.2rem;
+	padding-top: 9rem;
+	padding-bottom: 0.3rem;
+	border-bottom: 1px solid var(--apple_grey);
+}
+.ReadComent p{
+	padding-top: 1.5rem;
+	color: var(--apple_grey);
+}
+.ReadComent span{
+	background-color: var(--apple_black);
+	border: 1px solid var(--black);
+	padding: 0.4rem 1.8rem;
+	font-size: 1.2rem;
+	border-radius: 0.2rem;
+	color: var(--apple_white);
+	letter-spacing: 0.03rem;
+}
+.arButton{
+  color: var(--white);
+  font-size: 0;
+  /*
+  font-size: 1.4rem;
+  */
+  font-weight: bold;
+  height: 200px;
+  width: 250px;
+}
+/*hover*/
+.arButton:hover{
+	opacity: 0.7;
+}
+.arButton.london{
+	background: url("../image/web_xr_image/1.png") no-repeat;
+	background-size: cover;
+	background-position: 50% 0%;
+}
+.arButton.paris{
+	background: url("../image/web_xr_image/2.png") no-repeat;
+	background-size: cover;
+	background-position: 50% 0%;
+}
+.arButton.italy{
+	background: url("../image/web_xr_image/3.png") no-repeat ;
+	background-size: cover;
+	background-position: 50% 0%;
+}
+.arButton.praha{
+	background: url("../image/web_xr_image/4.png") no-repeat;
+	background-size: cover;
+	background-position: 50% 40%;
+}
+
+#topSection{
+	flex: 1;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	touch-action: none;
+}
+#bottomSection{
+	background: url("../image/web_xr_image/background_praque.png") no-repeat center center;
+	background-size: cover;
+	height: 150px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	transition: 0.5s;
+	position: fixed;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.delete-icons{
+	display: flex;
+	justify-content: center;
+}
+#delete{
+	position: absolute;
+	bottom: 10px;
+	width: 0px;
+	transition: 0.3s;
+}
+.icon-buttons{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 27px;
+	transition: 0.5s;
+	padding: 0 20px;
+}
+.iconSelect{
+	width: 35px;
+}
+.buttons{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	overflow-x: auto;
+	padding-right: 20px;
+	touch-action: pan-x;
+}
+#button-end{
+	z-index: 3;
+}
+.buttons::-webkit-scrollbar{
+	display: none;
+}
+.modelSelect{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	width: 110px;
+	height: 110px;
+	background-color: rgba(255, 255, 255, 0.3);
+	margin-left: 20px;
+	border-radius: 10px;
+}
+.modelSelect img{
+	width: 100px;
+	height: 100px;
+}
+.dot{
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	background-size: contain;
+}
+.arrow{
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 50%;
+	bottom: 0px;
+	transform: translate(-50%, -50%);
+	background-size: contain;
+	animation: arrowAnimate 0.7s infinite linear;
+}
+@keyframes arrowAnimate{
+	0% {bottom: -10px; opacity: 0%;}
+	50% {bottom: 15px; opacity: 100%;}
+	100% {bottom: 40px; opacity: 0%;}
+}
+#camera-init{
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	z-index: 2;
+	opacity: 50%;
+	position: absolute;
+	display: none;
+} 
+.init{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.init p{
+	color: var(--apple_white);
+}
+
+#hand-icon{
+	width: 200px;
+	height: 200px;
+	animation: handiconAnimate 3s ease-in-out infinite;
+}
+
+@keyframes handiconAnimate{
+	0% {margin-left: -100px; opacity: 100%;}
+	50% {margin-left: 100px; opacity: 100%;}
+	100% {margin-left: -100px; opacity: 100%;}
+}
+.circle {
+	position: absolute;
+	bottom: -70px;
+	left: calc(50% - 35px);
+	width: 0px;
+	height: 0px;
+	background: white;
+	border-radius: 50%;
+	transition: 0.5s;
+}
+.photo-click{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	position: absolute;
+	animation: photoClick 0.7s;
+}
+
+@keyframes photoClick{
+	0% {opacity: 100%;}
+	100% {opacity: 0%;}
+}
+
+@media (max-width: 820px){
+	.ReadComent h1{
+		font-size: 2rem;
+		letter-spacing: 0.15rem;
+	}
+	.ReadComent p{
+		font-size: 0.9rem;
+	}
+	.ReadComent span{
+		padding: 0.2rem 1.2rem;
+		font-size: 1rem;
+	}
+	.arButton{
+		width: 225px;
+		height: 180px;
+	}
+	#AR{
+		margin-left: 1.3rem;
+		grid-gap: 0.8rem 0.5rem;
+	}
+}
+
+@media (max-width: 680px){
+	/*모바일버전에서는 그리드 한줄 정렬*/
+	.ReadComent{
+		display: none;
+	}
+	#AR{
+	   margin-left: 0;
+	}
+}
+
+@media (max-width: 500px){
+	#AR{
+		padding-top: 0px;
+		grid-template-columns: unset;
+		grid-gap: 0;
+	}
+	.arButton{
+		width: calc(100vw + 25px);
+		height: calc(25vh - 13px);
+	}
+	.arButton.london{
+		background-position: 50% 60%
+	}
+	.arButton.paris{
+		background-position: 50% 60%
+	}
+	.arButton.italy{
+		background-position: 50% 70%
+	}
+	.arButton.praha{
+		background-position: 50% 50%
+	}
+}

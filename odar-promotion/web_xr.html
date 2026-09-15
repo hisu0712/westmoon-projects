@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WEB-AR-PHOTO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/default.css"> <!--순서에따라css우선순위있음-->
+    <link type="text/css" rel="stylesheet" href="./css/web_xr_css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
+    <script src="./js/three.js"></script>
+    <script src="https://unpkg.com/three@0.133.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/three@0.133.0/examples/js/loaders/DRACOLoader.js"></script>
+    <link rel="shortcut icon" href="./image/favicon2.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav id="local-nav">
+        <div class="local-nav-links">
+            <a href="index.html" class="product-name">WESTMOON</a>
+            <a href="web_xr.html">Showroom</a>
+        </div>
+    </nav>
+    <section class="ARSection" id="ARBefore">
+        <div class="ReadComent">
+            <h1>TRY IT NOW</h1>
+            <p>앱 다운 필요없이 모바일로 접속하게<br>
+            빠르고 간편하게 체험해보세요<br>
+            당신의 오늘을 더욱 특별하게<br>
+            앱 다운 필요없이 모바일로<br>
+            간편하게 접속하여 체험해보세요<br>
+            당신의 오늘을 더욱 특별하게</p>
+            <img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fweb-xr-seven.vercel.app%2FSSU_GraduationWork%2Fweb_xr.html&chs=180x180&choe=UTF-8&chld=L|2" alt="qr code" id="qr">
+        </div>
+        <div id="AR">
+            <div class="arButton london" id="0" data-value="0"></div>
+            <div class="arButton paris" id="1" data-value="1"></div>
+            <div class="arButton italy" id="2" data-value="2"></div>
+            <div class="arButton praha" id="3" data-value="3"></div>
+        </div>
+    </section>
+    <div id="camera-init">
+        <div class="init">
+            <p>핸드폰을 바닥을 향해 움직여 주세요</p>
+            <img id="hand-icon" src="./image/web_xr_image/hand-phone.png">
+        </div>
+    </div>
+    <div id="photo-click"></div>
+    <div id="main">
+        <div id="mySidenav" class="sidenav">
+            <img class="ar-object" src="./image/web_xr_image/london2.png" data-value="0" href="#">
+            <img class="ar-object" src="./image/web_xr_image/paris2.png" data-value="1" href="#">
+            <img class="ar-object" src="./image/web_xr_image/rome2.png" data-value="2" href="#">
+            <img class="ar-object" src="./image/web_xr_image/berlin2.png" data-value="3" href="#">
+        </div>
+        <section class="container touchScreen" id="topSection">
+            <div class="icon-buttons" id="icon-buttons">
+                <img class="iconSelect" src="./image/web_xr_image/icon_menu.png" id="button-menu">
+                <img class="iconSelect" src="./image/web_xr_image/icon_camera.png" id="button-photo">
+                <img class="iconSelect" src="./image/web_xr_image/icon_X.png" id="button-end">
+            </div>
+            <div class="delete-icons">
+                <img id="delete" src="./image/web_xr_image/delete.png">
+            </div>
+        </section>
+        <section class="container" id="bottomSection">
+            <div class="buttons" id="buttons">
+                <!-- London -->
+                <div class="modelSelect" id="bigben" data-value="bigben">
+                    <img src="./image/web_xr_image/bigben.png"></div>
+                <div class="modelSelect" id="nutcracker" data-value="nutcracker">
+                    <img src="./image/web_xr_image/nutcracker.png"></div>
+                <div class="modelSelect" id="phonebox" data-value="phonebox">
+                    <img src="./image/web_xr_image/phonebox.png"></div>
+                <div class="modelSelect" id="teddybear" data-value="teddybear">
+                    <img src="./image/web_xr_image/teddybear.png"></div>
+
+                <!-- Paris -->
+                <div class="modelSelect" id="eiffel" data-value="eiffel">
+                    <img src="./image/web_xr_image/eiffel.png"></div>
+                <div class="modelSelect" id="monalisa" data-value="monalisa">
+                    <img src="./image/web_xr_image/monalisa.png"></div>
+                <div class="modelSelect" id="croissant" data-value="croissant">
+                    <img src="./image/web_xr_image/croissant.png"></div>
+                <div class="modelSelect" id="arch" data-value="arch">
+                    <img src="./image/web_xr_image/arch.png"></div>
+
+                <!-- Rome -->
+                <div class="modelSelect" id="pisa" data-value="pisa">
+                    <img src="./image/web_xr_image/pisa.png"></div>
+                <div class="modelSelect" id="gelato" data-value="gelato">
+                    <img src="./image/web_xr_image/gelato.png"></div>
+                <div class="modelSelect" id="colosseum" data-value="colosseum">
+                    <img src="./image/web_xr_image/colosseum.png"></div>
+                <div class="modelSelect" id="pizza" data-value="pizza">
+                    <img src="./image/web_xr_image/pizza.png"></div>
+                <div class="modelSelect" id="wolf" data-value="wolf">
+                    <img src="./image/web_xr_image/wolf.png"></div>
+
+                <!-- Berlin -->
+                <div class="modelSelect" id="pretzel" data-value="pretzel">
+                    <img src="./image/web_xr_image/pretzel.png"></div>
+                <div class="modelSelect" id="beer" data-value="beer">
+                    <img src="./image/web_xr_image/beer.png"></div>
+                <div class="modelSelect" id="soldier" data-value="soldier">
+                    <img src="./image/web_xr_image/soldier.png"></div>
+                <div class="modelSelect" id="dog" data-value="dog">
+                    <img src="./image/web_xr_image/dog.png"></div>
+                <div class="modelSelect" id="gate" data-value="gate">
+                    <img src="./image/web_xr_image/gate.png"></div>
+            </div>
+        </section>
+        <div class="circle" id="camera"></div>
+    </div>
+   <script type="module" src="./js/web_xr_js.js"></script>
+</body>
+
+</html>
