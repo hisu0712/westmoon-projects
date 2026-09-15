@@ -1,0 +1,897 @@
+@charset "utf-8"; /*스타일 시트의 문서 인코딩 방식 utf-8*/
+:root{
+  --blue: #f8f987;
+  --blueAA: #fcfadd94;
+  --blueAAA: #fcfadd50;
+  --black:#000;
+  --grey:#232323;
+  --lightgrey:#313131;
+  --white:#fff;
+  --outline: 6px solid var(--black);
+}
+*{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none; /*리스트, 링크 꾸며 주기효과 제거*/
+}
+body{
+  margin: 0;
+  padding: 0; 
+  width: 100%;
+  height: 100%;
+  font-family: 'Noto Sans KR', arial;
+  overflow-x: hidden; /*화면 줄일 때 여백 남지 않도록*/
+}
+a{
+  color: var(--black);
+}
+/*header 영역*/
+header{
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 90px;
+  border: var(--outline);
+  display: flex;
+  align-items: center;
+  font-family: "arial";
+  position: relative;
+}
+header .logo{
+  margin-left: 80px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+.logo img{
+  width: auto;
+  height: 70px;
+  margin-top: 4px;
+}
+header .menu{
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+.menu a{ 
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1.1px; /*글자 사이 간격 조절*/
+  margin-right: 20px;
+  transition-duration: 0.5s; /*색 뜨는 시간 조절*/
+}
+.gnb a{
+  display: block; /*버튼을 클릭할 수 있는 영역 확장(블록화)*/
+}
+.gnb a:hover{
+  color: var(--blue);
+}
+.menu .contact{
+  background: var(--blue);
+  padding: 12px 9px;
+  color: var(--lightgrey);
+}
+.menu .contact:hover{
+  color: red;
+}
+
+/*HEADER 메뉴바*/
+header .bar{
+  display: none;
+  text-align: center;
+  border-left: var(--outline);
+}
+#bar-btn{ 
+  display: none; 
+}
+#bar-btn:checked ~ .sub-menu{ 
+  display: block; 
+} 
+.bar .sub-menu { 
+  display: none; 
+  position: absolute;
+  top: 84px; /*높이에서 border(6) 제외*/
+  left: 0;
+  background-color: var(--white);
+  border-bottom: var(--outline);
+  width: 100%;
+}
+.bar img{
+  width: 80px;
+  height: 74px;
+  padding: 8px 16px 5px;
+}
+.bar label:hover{
+  background-color: var(--blueAAA);
+  transition-duration: 0.5s;
+  -webkit-tap-highlight-color:transparent;
+}
+.sub-menu li:hover{
+  background-color: var(--blueAA);
+  transition-duration: 0.5s;
+  -webkit-tap-highlight-color:transparent;
+}
+.sub-menu li a{
+  padding: 20px 0;
+  display: block; /*클릭할 수 있는 영역 확장*/ 
+}
+
+/*header, footer 제외한 나머지*/
+main{
+  max-width: 1440px; /*margin 마지노선*/
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border-left: var(--outline);
+  border-right: var(--outline);
+}
+section{
+  border-bottom: var(--outline);
+}
+/*home 영역*/
+#home{
+  display: flex;
+  padding: 110px 0 130px 130px;
+  align-items: center;
+  width: 100%;
+}
+#home .title h1{
+  display: flex;
+  flex-direction: column;
+  font-size: 70px;
+}
+em{
+  font-style: normal;
+  width: max-content; /*담고있는 콘텐츠에 따라 넓이 결정*/
+  padding: 15px;
+  border: 2px solid var(--grey);
+  width: max-content;
+  box-shadow: 6px 6px var(--grey);
+}
+em:first-child{
+  margin-bottom: 20px;
+}
+#home .title p{
+  margin: 30px 0 0 30px;
+  font-size: 25px;
+  font-weight: 400;
+  width: max-content;
+  letter-spacing: 1.4px;
+}
+#home .title a{
+  display: block; /*버튼을 클릭할 수 있는 영역 확장(블록화)*/
+  width: max-content;
+  margin: 30px 0 0 30px;
+  padding: 20px 50px;
+  background-color: var(--blue);
+  font-weight: bold;
+  font-size: 17px;
+  transition: all 0.4s;
+  letter-spacing: 1.2px; /*글자 사이 간격 조절*/
+  color: var(--lightgrey);
+}
+#home a:hover{
+  transform: scale(1.05);
+}
+#home .wrapper{
+  display: flex;
+  align-items: center;
+}
+#home .phone{
+  display: flex;
+  position: relative;
+  left: 200px;
+  justify-content: center;
+  width: 370px; /*width, height 지정해줘야 위치 이동*/
+  height: 723px;
+  padding-top: 10px;
+}
+#home model-viewer{
+  position: absolute;
+  top: 140px;
+  object-fit: fill;
+  height: 310px;
+  margin: 0 auto;
+  background-color: var(--white);
+}
+
+/*partners*/
+#partners{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 80px;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  width: 100%;
+}
+p{
+  padding-top: 5px;
+  font-size: 15px;
+}
+#partners > .list{
+  height: 75px;
+  justify-content: center;
+  margin-top: 45px;
+  width: 100%;
+  overflow: hidden;  
+}
+.partner{
+  display: flex;
+  animation: slideshow 25s linear infinite 0s;
+}
+@keyframes slideshow{
+  100%{
+    transform: translateX(-2000px);/*요소 총 길이에서 화면 넓이를 뺀 만큼 지정*/
+   }
+}
+#partners img{
+  width: 180px;
+  height: 75px;
+}
+
+/*viewer*/
+#viewer{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*세로축 기준 정렬*/
+  width: 100%;
+  position: relative;
+  padding: 30px 100px 50px;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+}
+.view{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*세로축 기준 정렬*/
+  width: 100%;
+  height: 500px;
+  /*background-image: linear-gradient(to top, var(--skyblue), var(--blueA));*/
+  background-color: var(--blue);
+  position: relative;
+  border-radius: 50px;
+}
+#viewer model-viewer{
+  width: 100%;
+  height: 100%;
+  padding: 10px 35px;
+  background: unset;
+}
+.slides{
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  justify-content: center;
+  position: absolute;
+  bottom: 30px;
+  /*top: 30px; ar촬영시*/
+}
+.slide{
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.074);
+  margin-right: 20px;
+  border-radius: 10px;
+  display: flex;
+}
+.slide:last-child{ /*자신의 마지막 요소 선택자*/
+  margin-right: 0;
+}
+.slide.selected {
+  border: 3px solid var(--black);
+}
+
+/*service*/
+.service{
+  padding: 120px 0;  
+  display: flex;
+  border-bottom: 0; /*다음 페이지에서 border-top을 줄 것*/
+}
+.element{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.element-left{
+  margin-right: 100px;
+}
+.element-column{
+  width: 50%;
+  display: flex;
+  position: relative;
+}
+.introduce{
+  flex-direction: column;
+  justify-content: center;
+  width: max-content;
+}
+.introduce h2{
+  font-size: 50px;
+  letter-spacing: 1.5px;
+  padding: 10px 20px;
+  border: 2px solid var(--grey);
+  width: max-content;
+  box-shadow: 5px 5px var(--grey);
+}
+.introduce h5{
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.7; /*줄 사이 간격 조절*/
+}
+.content{
+  width: 550px;
+  height: 500px; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center; /*백그라운 이미지의 중앙에 폰이 오도록*/
+  align-items: center; /*프레임에서 동영상이 중앙에 오도록*/
+}
+.content .wrap{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.wrap img{
+  position: absolute;
+  z-index: 3;
+}
+.wrap video{
+  position: absolute;
+  object-fit: fill; /*비율 상관없이 원하는 대로 조절 가능*/
+  border-radius: 20px;
+}
+/*폰화면 세로 배치*/
+.content .phone_col{ 
+  top: 85px;
+  height: 450px;
+  width: 230px;
+}
+.phone_col img{
+  height: 100%;
+  width: 100%;
+}
+.phone_col video{
+  height: 95%;
+  width: 90%;
+}
+/*폰화면 가로배치*/
+.content .phone_row{ 
+  bottom: 30px; /*왼쪽 오른쪽에 따라 right, left 다르므로 밑에 따로 추가*/
+  height: 230px;
+  width: 450px;
+}
+.phone_row img{
+  height: 100%;
+  width: 100%;
+}
+.phone_row video{
+  height: 90%;
+  width: 95%;
+}
+
+/*service fillter*/
+.fillter .content{
+  background-image: url("../img/service/fillter2.jpeg");
+  background-position: 80% 40%;
+} 
+/*service visual*/
+.visual .content{
+  background-image: url("../img/service/visual1.jpg");
+  background-position: 50% 38%;
+}
+/*
+.visual .content .phone_row{ /*왼쪽에 폰 배치
+  right: 130px;
+}
+*/
+/*service modeling*/
+.modeling .content{
+  background-image: url("../img/service/modeling.jpeg");
+  background-position: 30% 50%;
+}
+/*service arrange*/
+.arrange .content{
+  background-image: url("../img/service/arrange.jpeg");
+  background-position: 50% 20%;
+}
+.arrange .content .phone_row{ /*왼쪽에 폰 배치*/
+  right: 130px;
+}
+/*service manage*/
+.manage .content{
+  background-image: url("../img/service/manage.png");
+  background-position: 50% 50%;
+}
+
+/*canvas*/
+#test{
+  z-index: -10;
+  top: 5800px; /*위치 조절 다른 방식 필요*/
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+@media screen and (max-width: 1050px) {
+  #test{
+    top: 5350px;
+  }
+}
+@media screen and (max-width: 960px) {
+  #test{
+    top: 5700px;
+  }
+}
+@media screen and (max-width: 900px) {
+  #test{
+    top: 6700px;
+  }
+}
+@media screen and (max-width: 850px) {
+  #test{
+    top: 6900px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #test{
+    top: 6500px;
+  }
+}
+
+/*promotion*/
+#promotion{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 200px 0;
+  border-top: var(--outline);
+}
+#promotion h1{
+  margin-right: 50px;
+  letter-spacing: 1px; /*글자 사이의 간격 조절*/
+}
+.boxcontainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box{
+  background-color: #ffffff7b;
+  box-shadow: 6px 6px var(--grey);
+  border: 2px solid var(--grey);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px 40px;
+  align-items: center;
+}
+.box:nth-child(n+2){ /*두번째 자식부터 모든 자식*/
+  margin-left: 30px;
+}
+.box img{
+  height: 55px;
+  width: 55px;
+}
+.box h3{
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+.box p{
+  max-width: 165px;
+  min-width: 165px;
+  font-size: 14px;
+  line-height: 1.6; /*줄 사이 간격 조절*/
+}
+
+/*contact*/
+#contact{
+  display: flex;
+  padding: 100px;
+  background-color: var(--grey);
+  color: var(--white);
+  flex-direction: column;
+  width: 100%;
+}
+#contact h2{
+  font-size: 50px;
+  width: max-content;
+}
+#contact em{
+  padding: 25px;
+  background-color: var(--white);
+  color: var(--grey);
+  font-style: normal;
+}
+#contact .form{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.form span{
+  font-size: 32px;
+  font-weight: bold;
+}
+.form .row{
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+}
+.form .row > p{
+  font-size: 17px;
+  font-weight: bold;
+}
+.form .row input{
+  margin: 15px 0 0;
+  padding: 15px;
+  font-size: 16px;
+  border: 4px solid var(--white);
+  border-radius: 4px;
+  background-color: var(--grey);
+  color: var(--white);
+}
+.form .button{
+  margin-top: 40px;
+  margin-left: 5px;
+  color: var(--grey);
+  font-size: 20px;
+  font-weight: bold;
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+  padding: 20px 50px;
+  width: max-content;
+  cursor: pointer;
+}
+.form .button:hover{
+  transition: 0.5s;
+  background-color: var(--grey);
+  color: var(--blue);
+}
+
+/*about*/
+#about{
+  display: flex;
+  justify-content: center;
+  padding: 35px 0 30px;
+  align-items: center;
+}
+.read{
+  padding-right: 100px;
+}
+.read h2{
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  font-size: 35px;
+}
+h2 span{
+  color: var(--white);
+  background-color: var(--grey);
+  padding: 10px 15px;
+}
+.read h5{
+  letter-spacing: 0.7px;
+  font-size: 13px;
+  padding-top: 15px;
+}
+.read p{
+  font-size: 12px;
+}
+.show{
+  width: 370px;
+  height: 270px;
+  position: relative;
+}
+.show iframe{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/*footer*/
+footer{
+  font-family: 'arial';
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border: var(--outline);
+  border-top: 0;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer .copyright{
+  margin-left: auto;
+  letter-spacing: 0.9px;
+  font-size: 13px;
+  margin-right: 35px;
+}
+footer button{
+  height: 100%;
+  width: 80px;
+  border-left: var(--outline);
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+
+/*미디어쿼리*/
+@media screen and (max-width: 1300px) {
+  /*home(글자크기, 패딩 조절, 폰화면 이동)*/
+  #home{
+    padding-left: 100px;
+  }
+  #home .title h1{
+    font-size: 55px;
+  }
+  #home .phone{
+    left: 130px;
+  }
+  /*promotion(제목 일부 삭제)*/
+  #promotion h1 span{
+    display: none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  /*home(패딩 조절, 폰화면 이동)*/
+  #home{
+    padding-left: 50px;
+  }
+  #home .phone{
+    left: 50px;
+  }
+  /*service(오른쪽 여백 줄어듬)*/
+  .service .element-left{
+    margin-right: 40px;
+  }
+  /*promotion(요소 배치 변경)*/
+  #promotion{
+    flex-direction: column;
+  }
+  #promotion h1{
+    margin-right: 0;
+    max-width: unset;
+    margin-bottom: 60px;
+  }
+  /*about(오른쪽 여백 줄어듬)*/
+  #about .read{
+    padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  /*service(content 크기 조절)*/
+  .service .content{
+    width: 440px;
+    height: 400px; /*width=height*1.1*/
+  }
+  .service .introduce h2{
+    font-size: 40px;
+  }
+  .service .content .phone_col{ 
+    top: 80px;
+    height: 351px;
+    width: 180px; /*height=width*1.95*/
+  }
+  .service .content .phone_row{ 
+    height: 180px;
+    width: 351px;
+  }
+  /*
+  .visual .content .phone_row{ 
+    right: 112px;
+  }
+  */
+}
+@media screen and (max-width: 980px) {
+  .slides{
+    justify-content: unset; /*앞 glb가 짤리는 오류 해결*/
+  }
+}
+@media screen and (max-width: 960px) {
+  /*home(요소배치 바뀜)*/
+  #home{
+    flex-direction: column;
+    padding-bottom: 50px;
+    padding-left: unset;
+  }
+  #home .phone{
+    margin-top: 30px;
+    left: unset;
+  }
+  /*header(메뉴명 대신 메뉴바)*/
+  header .gnb{
+    display: none;
+  }
+  header .bar{
+    display: flex;
+  }
+  /*로고 크기 및 위치 조정*/
+  header .logo{
+    margin-left: 15px;
+  }
+  .logo img{
+    height: 65px;
+  }
+}
+@media screen and (max-width: 900px) {
+  /*service(요소배치 바뀜)*/
+  .service{
+    justify-content: center;
+     /*모바일 버전 흔들림 삭제*/
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+  .service .element{
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+  .service #reverse{
+    flex-direction: column-reverse;
+  }
+  .service .element-left{
+    margin-right: 0;
+  }
+  .service .introduce{
+    margin-bottom: 20px;
+  }
+  /*about(요소배치 바뀜)*/
+  #about{
+    margin-top: 10px;
+    flex-direction: column;
+  }
+  #about .read{
+    padding-right: 0;
+    padding-bottom: 8px;
+  }
+}
+@media screen and (max-width: 850px) {
+  /*promotion(박스 배치 변경)*/
+  #promotion{
+    padding: 80px 0;
+  }
+  #promotion .boxcontainer{
+    flex-direction: column;
+  }
+  #promotion .box{
+    padding: 30px 30px;
+  }
+  #promotion .box:nth-child(n+2){
+    margin-left: unset;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 800px) {
+  /*partners(좌우 패딩 조절)*/
+  #partners{
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  /*viewer(좌우 패딩 조절)*/
+  #viewer{
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+@media screen and (max-width: 600px) {
+  /*home(모든 글자크기 조절)*/
+  #home .title h1{
+    font-size: 35px;
+  }
+  #home .title p{
+    font-size: 20px;
+    margin-left: 0;
+  }
+  #home .title a{
+    padding: 15px 30px;
+    margin-left: 0;
+  }
+  /*header(로고 왼쪽 여백 줄어듬)*/
+  header .logo{
+    margin-left: 20px;
+  }
+  /*viewer(radius, 패딩 조절)*/
+  #viewer .view{
+    border-radius: 30px;
+  }
+  #viewer model-viewer{
+    padding: 10px 15px;
+  }
+  #viewer .slides{
+    bottom: 0px;
+    /*top: 0px; ar촬영시*/ 
+  }
+  /*contact(제목의 크기 조절)*/
+  #contact h2{
+    font-size: 40px;
+  }
+  #contact h2 em{
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  /*contact(전체 넓이 조절)*/
+  #contact{
+    padding: 50px;
+    padding-top: 70px;
+  }
+  /*viewer(높이 조절)*/
+  #viewer .view{
+    height: 400px;
+  }
+  /*service(content 크기 조절)*/
+  .service .content{
+    width: 363px;
+    height: 330px; /*width=height*1.1*/
+  }
+  .service .introduce h2{
+    font-size: 40px;
+  }
+  .service .content .phone_col{ 
+    top: 60px;
+    height: 292.5px;
+    width: 150px; /*height=width*1.95*/
+  }
+  .service .content .phone_row{ 
+    height: 150px;
+    width: 292.5px;
+  }
+  /*
+  .visual .content .phone_row{ 
+    right: 95px;
+  }
+  */
+  .arrange .content .phone_row{ 
+    right: 95px;
+  }
+}
+@media screen and (max-width: 460px) {
+  /*about(pc화면 크기 조절)*/
+  .show{
+    width: 330px;
+    height: 200px; 
+  }
+}
+@media screen and (max-width: 420px) {
+    /*service(content 크기 조절)*/
+    .service .content{
+      width: 341px;
+      height: 310px; /*width=height*1.1*/
+    }
+    .service .content .phone_col{ 
+      top: 70px;
+      height: 263.25px;
+      width: 135px; /*height=width*1.95*/
+    }
+    .service .content .phone_row{ 
+      height: 135px;
+      width: 263.25px;
+    }
+    /*
+    .visual .content .phone_row{ 
+      right: 97px;
+    }
+    */
+    .arrange .content .phone_row{ 
+      right: 97px;
+    }
+    .phone_col video{
+      height: 97%;
+    }
+    .phone_row video{
+      width: 97%;
+    }
+  }
